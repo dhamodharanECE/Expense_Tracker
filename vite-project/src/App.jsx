@@ -1,11 +1,12 @@
 import './App.css'
 import React from 'react'
 import { useState } from "react";
-import Right from './Clint/Right/Right';
-import Left from './Clint/Left/Left';
-import { Data } from './Data';
 import { ExpenseContext, MoneyContext } from './Context';
 import Header from './Clint/Header/Header';
+import Right from './Clint/Right/Right';
+import Left from './Clint/Left/Left';
+import { Data } from './DataPath/Data';
+
 
 
 
@@ -15,7 +16,7 @@ const App = () => {
     expenses: 1200
   })
    const [transactionData, setTransactionData] = useState(Data);
-   
+  
     const Money = JSON.stringify(money);
     localStorage.setItem("Income", Money);
     sessionStorage.setItem("Income", Money);
@@ -33,6 +34,7 @@ const App = () => {
       <Right transactionData={transactionData} />
       </ExpenseContext.Provider>
     </MoneyContext.Provider>
+    
    </main>
   )
 }
