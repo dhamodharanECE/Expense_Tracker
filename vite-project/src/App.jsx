@@ -1,7 +1,7 @@
 import './App.css'
 import React from 'react'
 import { useState } from "react";
-import { ExpenseContext, MoneyContext } from './Context';
+import { ExpenseContext, MoneyContext } from './Context/Context';
 import Header from './Clint/Header/Header';
 import Right from './Clint/Right/Right';
 import Left from './Clint/Left/Left';
