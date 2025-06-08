@@ -1,11 +1,11 @@
 import './App.css'
 import React from 'react'
 import { useState } from "react";
-import Header from './Clint/Header/Header';
 import Right from './Clint/Right/Right';
 import Left from './Clint/Left/Left';
 import { Data } from './DataPath/Data';
 import { ExpenseContext, MoneyContext } from './ComponentModel/ComponentPath';
+import Header from './Clint/Header/Header';
 
 
 
@@ -29,7 +29,7 @@ const App = () => {
    <main>
     <MoneyContext.Provider value={[money, setMoney]}>
       <ExpenseContext.Provider value={[transactionData, setTransactionData]}>
-       <Header/>
+       <Header />
       <Left balance={money.balance} expenses={money.expenses} />
       <Right transactionData={transactionData} />
       </ExpenseContext.Provider>
