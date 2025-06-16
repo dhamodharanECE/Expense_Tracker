@@ -6,24 +6,22 @@ import Header from './Clint/Header/Header';
 import Right from './Clint/Right/Right';
 import Left from './Clint/Left/Left';
 import { Data } from './DataPath/Data';
-
-
+import { useEffect } from 'react';
 
 
 const App = () => {
-  const [money, setMoney] = useState({
-    balance: 3800,
-    expenses: 1200
-  })
-   const [transactionData, setTransactionData] = useState(Data);
+  const [money, setMoney] = useState(() => {
+    const savedMoney = localStorage.getItem('moneyData');
+    return savedMoney ? JSON.parse(savedMoney) : {
+      balance: 5000,
+      expenses: 0
+    };
+  });
   
-    const Money = JSON.stringify(money);
-    localStorage.setItem("Income", Money);
-    sessionStorage.setItem("Income", Money);
-    const Expenses = JSON.stringify(transactionData);
-    localStorage.setItem("Expenses", Expenses);
-    sessionStorage.setItem("Expenses", Expenses);
-
+  const [transactionData, setTransactionData] = useState(() => {
+    const savedExpenses = localStorage.getItem('Expenses');
+    return savedExpenses ? JSON.parse(savedExpenses) : Data;
+  });
 
   return (
    <main>
